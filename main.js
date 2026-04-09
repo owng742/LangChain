@@ -3,17 +3,6 @@ import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
 import "dotenv/config";
 import * as z from "zod";
 
-const getWeather = tool(
-  (input) => `It's always sunny in ${input.city}!`,
-  {
-    name: "get_weather",
-    description: "Get the weather for a given city",
-    schema: z.object({
-      city: z.string().describe("The city to get the weather for"),
-    }),
-  }
-);
-
 const multiply = tool(
   (input) => `${input.x} multiplied by ${input.y} is ${input.x * input.y}`,
   {
